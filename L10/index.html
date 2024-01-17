@@ -1,0 +1,286 @@
+</html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Covid-19 Cases in Singapore</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://unpkg.com/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://unpkg.com/tippy.js@6.3.1/dist/tippy-bundle.umd.min.js"></script>
+</head>
+
+<body>
+    <div style="flex: 1; padding: 0px;">
+        <nav>
+            <h1>Covid-19 in Singapore</h1>
+            <ul>
+                <li><a href="#section1">Cases</a></li>
+                <li><a href="#section2">Vaccination Progress</a></li>
+                <li><a href="#section3">Vaccination Centers</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <section id="section1" style="display: flex; flex-wrap: wrap;">
+
+        <div style="flex: 1; padding: 30px;">
+            <h1>Cases in Singapore</h1>
+
+            <p><strong>Total Cases:</strong> 257,510</p>
+            <p><strong>In Hospital:</strong> 1,365</p>
+            <p><strong>Total Deaths:</strong> 678</p>
+            <br>
+            <p>The number of Covid 19 cases in Singapore has grown to 257,510, with 2,079 new cases reported on Dec 14.
+            </p>
+            <br>
+            <p>Of these, 2,030 were reported in the community and 40 in the workers' dormitories. The remaining 9 cases
+                were imported.</p>
+            <br>
+            <p>A further 2,275 patients were discharged, including 366 seniors aged above 60. A total of 238,909 cases
+                are recovered to date.</p>
+        </div>
+
+        <div style="flex: 1; padding: 10px;">
+            <canvas id="dailyCasesChart" width="400" height="200"></canvas>
+            <script>
+                $(document).ready(function () {
+                    $('#CasesTable').DataTable();
+                });
+
+                var ctx = document.getElementById('dailyCasesChart').getContext('2d');
+                var dailyCasesChart = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+                        datasets: [{
+                            label: 'Number of Cases in the Past Month',
+                            data: [600, 1500, 800, 2000, 1800, 500, 2200],
+                            backgroundColor: [
+                                'rgba(255, 99, 132, 0.5)',
+                                'rgba(54, 162, 235, 0.5)',
+                                'rgba(255, 206, 86, 0.5)',
+                                'rgba(75, 192, 192, 0.5)',
+                                'rgba(153, 102, 255, 0.5)'
+                            ],
+                            borderColor: [
+                                'rgba(255, 99, 132, 1)',
+                                'rgba(54, 162, 235, 1)',
+                                'rgba(255, 206, 86, 1)',
+                                'rgba(75, 192, 192, 1)',
+                                'rgba(153, 102, 255, 1)'
+                            ],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        }
+                    }
+                });
+            </script>
+        </div>
+    </section>
+
+    <div style="flex: 1; padding: 30px;">
+        <section id="section2">
+            <h1>9 out of 10 Singaporeans
+                have been vaccinated</h1>
+                <br>
+            <div class="first-row, icon-container">
+                <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor"
+                    class="bi bi-person-standing">
+                    <path
+                        d="M8 3a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3M6 6.75v8.5a.75.75 0 0 0 1.5 0V10.5a.5.5 0 0 1 1 0v4.75a.75.75 0 0 0 1.5 0v-8.5a.25.25 0 1 1 .5 0v2.5a.75.75 0 0 0 1.5 0V6.5a3 3 0 0 0-3-3H7a3 3 0 0 0-3 3v2.75a.75.75 0 0 0 1.5 0v-2.5a.25.25 0 0 1 .5 0" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor"
+                    class="bi bi-person-standing">
+                    <path
+                        d="M8 3a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3M6 6.75v8.5a.75.75 0 0 0 1.5 0V10.5a.5.5 0 0 1 1 0v4.75a.75.75 0 0 0 1.5 0v-8.5a.25.25 0 1 1 .5 0v2.5a.75.75 0 0 0 1.5 0V6.5a3 3 0 0 0-3-3H7a3 3 0 0 0-3 3v2.75a.75.75 0 0 0 1.5 0v-2.5a.25.25 0 0 1 .5 0" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor"
+                    class="bi bi-person-standing">
+                    <path
+                        d="M8 3a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3M6 6.75v8.5a.75.75 0 0 0 1.5 0V10.5a.5.5 0 0 1 1 0v4.75a.75.75 0 0 0 1.5 0v-8.5a.25.25 0 1 1 .5 0v2.5a.75.75 0 0 0 1.5 0V6.5a3 3 0 0 0-3-3H7a3 3 0 0 0-3 3v2.75a.75.75 0 0 0 1.5 0v-2.5a.25.25 0 0 1 .5 0" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor"
+                    class="bi bi-person-standing">
+                    <path
+                        d="M8 3a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3M6 6.75v8.5a.75.75 0 0 0 1.5 0V10.5a.5.5 0 0 1 1 0v4.75a.75.75 0 0 0 1.5 0v-8.5a.25.25 0 1 1 .5 0v2.5a.75.75 0 0 0 1.5 0V6.5a3 3 0 0 0-3-3H7a3 3 0 0 0-3 3v2.75a.75.75 0 0 0 1.5 0v-2.5a.25.25 0 0 1 .5 0" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor"
+                    class="bi bi-person-standing">
+                    <path
+                        d="M8 3a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3M6 6.75v8.5a.75.75 0 0 0 1.5 0V10.5a.5.5 0 0 1 1 0v4.75a.75.75 0 0 0 1.5 0v-8.5a.25.25 0 1 1 .5 0v2.5a.75.75 0 0 0 1.5 0V6.5a3 3 0 0 0-3-3H7a3 3 0 0 0-3 3v2.75a.75.75 0 0 0 1.5 0v-2.5a.25.25 0 0 1 .5 0" />
+                </svg>
+
+                <!-- Second Row -->
+                <div class="second-row">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor"
+                        class="bi bi-person-standing">
+                        <path
+                            d="M8 3a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3M6 6.75v8.5a.75.75 0 0 0 1.5 0V10.5a.5.5 0 0 1 1 0v4.75a.75.75 0 0 0 1.5 0v-8.5a.25.25 0 1 1 .5 0v2.5a.75.75 0 0 0 1.5 0V6.5a3 3 0 0 0-3-3H7a3 3 0 0 0-3 3v2.75a.75.75 0 0 0 1.5 0v-2.5a.25.25 0 0 1 .5 0" />
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor"
+                        class="bi bi-person-standing">
+                        <path
+                            d="M8 3a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3M6 6.75v8.5a.75.75 0 0 0 1.5 0V10.5a.5.5 0 0 1 1 0v4.75a.75.75 0 0 0 1.5 0v-8.5a.25.25 0 1 1 .5 0v2.5a.75.75 0 0 0 1.5 0V6.5a3 3 0 0 0-3-3H7a3 3 0 0 0-3 3v2.75a.75.75 0 0 0 1.5 0v-2.5a.25.25 0 0 1 .5 0" />
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor"
+                        class="bi bi-person-standing">
+                        <path
+                            d="M8 3a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3M6 6.75v8.5a.75.75 0 0 0 1.5 0V10.5a.5.5 0 0 1 1 0v4.75a.75.75 0 0 0 1.5 0v-8.5a.25.25 0 1 1 .5 0v2.5a.75.75 0 0 0 1.5 0V6.5a3 3 0 0 0-3-3H7a3 3 0 0 0-3 3v2.75a.75.75 0 0 0 1.5 0v-2.5a.25.25 0 0 1 .5 0" />
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor"
+                        class="bi bi-person-standing">
+                        <path
+                            d="M8 3a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3M6 6.75v8.5a.75.75 0 0 0 1.5 0V10.5a.5.5 0 0 1 1 0v4.75a.75.75 0 0 0 1.5 0v-8.5a.25.25 0 1 1 .5 0v2.5a.75.75 0 0 0 1.5 0V6.5a3 3 0 0 0-3-3H7a3 3 0 0 0-3 3v2.75a.75.75 0 0 0 1.5 0v-2.5a.25.25 0 0 1 .5 0" />
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor"
+                        class="bi bi-person-standing lighter-icon">
+                        <path
+                            d="M8 3a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3M6 6.75v8.5a.75.75 0 0 0 1.5 0V10.5a.5.5 0 0 1 1 0v4.75a.75.75 0 0 0 1.5 0v-8.5a.25.25 0 1 1 .5 0v2.5a.75.75 0 0 0 1.5 0V6.5a3 3 0 0 0-3-3H7a3 3 0 0 0-3 3v2.75a.75.75 0 0 0 1.5 0v-2.5a.25.25 0 0 1 .5 0" />
+                    </svg>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="section3">
+            <h1>Vaccination Centers in Singapore</h1>
+            <p>There are currently 12 Vaccination Centers in Singapore</p>
+            <div
+                style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; margin-top: 20px;">
+                <div style="width: 48%; box-sizing: border-box;">
+                    <img id="sgMap" src="singapore.svg" alt="Singapore Map" usemap="#polyclinicsMap">
+                    <div class="dot" style="top: 880px; left: 370px;" data-tippy-content="Bedok Polyclinic"></div>
+                    <div class="dot" style="top: 950px; left: 250px;" data-tippy-content="Bukit Batok Polyclinic"></div>
+                    <div class="dot" style="top: 980px; left: 700px;" data-tippy-content="Bukit Merah Polyclinic"></div>
+                    <div class="dot" style="top: 950px; left: 350px;" data-tippy-content="Choa Chu Kang Polyclinic">
+                    </div>
+                    <div class="dot" style="top: 920px; left: 500px;" data-tippy-content="Clementi Polyclinic"></div>
+                    <div class="dot" style="top: 1000px; left: 590px;" data-tippy-content="Geylang Polyclinic"></div>
+                    <div class="dot" style="top: 1100px; left: 740px;" data-tippy-content="Hougang Polyclinic"></div>
+                    <div class="dot" style="top: 1150px; left: 350px;" data-tippy-content="Jurong Polyclinic"></div>
+                    <div class="dot" style="top: 1100px; left: 200px;" data-tippy-content="Marine Parade Polyclinic">
+                    </div>
+                    <div class="dot" style="top: 1120px; left: 800px;" data-tippy-content="Outram Polyclinic"></div>
+                    <div class="dot" style="top: 1190px; left: 600px;" data-tippy-content="Pasir Ris Polyclinic"></div>
+                    <div class="dot" style="top: 1200px; left: 500px;" data-tippy-content="Pioneer Polyclinic"></div>
+                </div>
+
+                <div style="width: 48%; box-sizing: border-box; margin-left: 20px;">
+                    <table id="VaccinationCenters" style="width: 100%;">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Address</th>
+                                <th>Vaccine Type</th>
+                                <th>Phone</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Bedok Polyclinic</td>
+                                <td>11 Bedok North Street 1 Heartbeat@Bedok #02-01, #03-01, Singapore 469662</td>
+                                <td>Pfizer</td>
+                                <td>6343 1121</td>
+                            </tr>
+                            <tr>
+                                <td>Bukit Batok Polyclinic</td>
+                                <td>50 Bukit Batok West Avenue 3, Singapore 659164 </td>
+                                <td>Moderna</td>
+                                <td>6343 1121</td>
+                            </tr>
+                            <tr>
+                                <td>Bukit Merah Polyclinic </td>
+                                <td>162 Bukit Merah Central Level 4, Singapore 150163 </td>
+                                <td>Pfizer</td>
+                                <td>6343 1123</td>
+                            </tr>
+                            <tr>
+                                <td>Choa Chu Kang Polyclinic </td>
+                                <td>2 Teck Whye Crescent, Singapore 688846 </td>
+                                <td>Moderna</td>
+                                <td>6343 1124 </td>
+                            </tr>
+                            <tr>
+                                <td>Clementi Polyclinic </td>
+                                <td>451 Clementi Avenue 3, Singapore 120451 </td>
+                                <td>Pfizer</td>
+                                <td>6343 1125 </td>
+                            </tr>
+                            <tr>
+                                <td>Geylang Polyclinic </td>
+                                <td>21 Geylang East Central, Singapore 389707 </td>
+                                <td>Pfizer</td>
+                                <td>6343 1126 </td>
+                            </tr>
+                            <tr>
+                                <td>Hougang Polyclinic</td>
+                                <td>89 Hougang Avenue 4, Singapore 538829 </td>
+                                <td>Pfizer</td>
+                                <td>6765 1121 </td>
+                            </tr>
+                            <tr>
+                                <td>Jurong Polyclinic </td>
+                                <td>190 Jurong East Avenue 1, Singapore 609788 </td>
+                                <td>Pfizer</td>
+                                <td>6765 1122 </td>
+                            </tr>
+                            <tr>
+                                <td>Marine Parade Polyclinic </td>
+                                <td>80 Marine Parade Central, Singapore 440080 </td>
+                                <td>Pfizer</td>
+                                <td>6765 1123 </td>
+                            </tr>
+                            <tr>
+                                <td>Outram Polyclinic </td>
+                                <td>3 Second Hospital Avenue, #02-00 Health Promotion Board Building, Singapore
+                                    168937
+                                </td>
+                                <td>Comirnaty</td>
+                                <td>6765 1124 </td>
+                            </tr>
+                            <tr>
+                                <td>Pasir Ris Polyclinic </td>
+                                <td>1 Pasir Ris Drive 4, Singapore 519457 </td>
+                                <td>Comirnaty </td>
+                                <td>6765 1125 </td>
+                            </tr>
+                            <tr>
+                                <td>Pioneer Polyclinic </td>
+                                <td>26 Jurong West Street 61, Singapore 648201 </td>
+                                <td>Moderna</td>
+                                <td>6765 1126</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        &copy; Copyright 2021, The Lion Press
+    </footer>
+
+    <script>
+        tippy('[data-tippy-content]', {
+            placement: 'right',
+            followCursor: true,
+            allowHTML: true
+        });
+    </script>
+</body>
+
+</html>

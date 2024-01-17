@@ -1,0 +1,118 @@
+body {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    margin: 0;
+}
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+h1, h2 {
+    margin-top: 0px;
+    margin-bottom: 0;
+}
+
+.dot {
+    width: 15px;
+    height: 15px;
+    background-color: red;
+    border-radius: 50%;
+    position: absolute;
+    cursor: pointer;
+}
+
+#container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 20px;
+}
+.lighter-icon {
+    opacity: 0.5; }
+
+#sgMap {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 10px;
+}
+.icon-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.icon-container svg {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.second-row {
+    flex-direction: column;
+}
+
+.second-row svg {
+    margin-bottom: 10px; 
+}
+#VaccinationCenters td:nth-child(4) {
+    width: 120px; 
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+}
+
+#VaccinationCenters th,
+#VaccinationCenters td {
+    padding: 10px;
+    text-align: left;
+}
+
+nav {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+nav h1 {
+    margin: 0;
+    margin-left: 20px;
+    color: white;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-right: 30px;
+}
+
+nav ul li a {
+    font-size: 1.2em; 
+    color: white; 
+    text-decoration: none; 
+}
+
+h1 {
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+footer {
+    background-color: grey;
+    padding: 40px;
+    text-align: center;
+    width: 100%;
+    position: relative;
+    bottom: 0;
+}
